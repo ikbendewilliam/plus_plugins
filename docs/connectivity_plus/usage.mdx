@@ -102,6 +102,25 @@ Always guard your app code against timeouts and errors that might come
 from the network layer with `try/catch`.
 :::
 
+### Proxy settings [Android and iOS only]
+
+Using Connectivity API, you can get the proxy settings from the OS
+
+``` dart
+ProxyResult proxyResult = await _connectivity.getProxySettings();
+
+if (proxyResult.port == null || proxyResult.host == null) {
+  // Don't use the proxy
+} else {
+  // Configure proxy settings
+}
+```
+
+Using `checkConnectivity()` method, you may get one of 3 network statuses:
+1. **Mobile:** connected to a mobile cellular network.
+2. **WiFi:** connected to WiFi access point.
+3. **None:** not connected at all.
+
 ### [Web Only] Limitations
 
 In order to retrieve information about the quality/speed of a browser's connection, 
