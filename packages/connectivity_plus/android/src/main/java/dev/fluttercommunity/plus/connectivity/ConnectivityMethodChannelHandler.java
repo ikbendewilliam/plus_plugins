@@ -31,6 +31,9 @@ class ConnectivityMethodChannelHandler implements MethodChannel.MethodCallHandle
       case "check":
         result.success(connectivity.getNetworkType());
         break;
+      case "proxy":
+        result.success(connectivity.getProxySettings());
+        break;
       default:
         result.notImplemented();
         break;

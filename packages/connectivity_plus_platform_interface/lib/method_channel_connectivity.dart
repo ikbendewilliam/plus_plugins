@@ -40,4 +40,11 @@ class MethodChannelConnectivity extends ConnectivityPlatform {
         .invokeMethod<String>('check')
         .then((value) => parseConnectivityResult(value ?? ''));
   }
+
+  @override
+  Future<ProxyResult> getProxySettings() {
+    return methodChannel
+        .invokeMethod('proxy')
+        .then((value) => parseProxyResult(value));
+  }
 }

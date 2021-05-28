@@ -65,4 +65,12 @@ class Connectivity {
   Future<ConnectivityResult> checkConnectivity() {
     return _platform.checkConnectivity();
   }
+
+  /// Retrieve the system proxy
+  ///
+  /// The ProxyResult will contain proxy and host values when found otherwise the
+  /// value will be null
+  Future<ProxyResult> getProxySettings() async {
+    return _platform.getProxySettings();
+  }
 }

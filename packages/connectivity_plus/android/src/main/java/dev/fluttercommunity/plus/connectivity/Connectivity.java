@@ -18,6 +18,17 @@ class Connectivity {
     this.connectivityManager = connectivityManager;
   }
 
+  String getProxySettings() {
+    Map map = new HashMap<String, String>();
+    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      ProxyInfo defaultProxy = connectivityManager.getDefaultProxy();
+    if (defaultProxy != null) {
+      map.put("host", defaultProxy.getHost());
+      map.put("port", Integer.toString(defaultProxy.getPort()));
+    }
+    return map;
+  }
+
   String getNetworkType() {
     if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
       Network network = connectivityManager.getActiveNetwork();

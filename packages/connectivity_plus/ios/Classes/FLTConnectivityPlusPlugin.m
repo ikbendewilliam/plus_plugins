@@ -49,6 +49,9 @@
     // and the code
     // gets more involved. So for now, this will do.
     result([self statusFromReachability:[Reachability reachabilityForInternetConnection]]);
+  } else if ([call.method isEqualToString:@"[proxy]"]) {
+    let systemProxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() ?? [:] as CFDictionary
+    result(systemProxySettings as NSDictionary);
   } else {
     result(FlutterMethodNotImplemented);
   }

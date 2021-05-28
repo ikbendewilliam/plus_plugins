@@ -8,8 +8,10 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'method_channel_connectivity.dart';
 import 'src/enums.dart';
+import 'src/model.dart';
 
 export 'src/enums.dart';
+export 'src/model.dart';
 
 /// The interface that implementations of connectivity must implement.
 ///
@@ -47,5 +49,10 @@ abstract class ConnectivityPlatform extends PlatformInterface {
   Stream<ConnectivityResult> get onConnectivityChanged {
     throw UnimplementedError(
         'get onConnectivityChanged has not been implemented.');
+  }
+
+  /// Return System Proxy settings
+  Future<ProxyResult> getProxySettings() {
+    throw UnimplementedError('getProxySettings() has not been implemented.');
   }
 }
