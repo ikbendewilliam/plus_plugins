@@ -12,7 +12,7 @@ import 'package:connectivity_plus_linux/connectivity_plus_linux.dart';
 
 // Export enums from the platform_interface so plugin users can use them directly.
 export 'package:connectivity_plus_platform_interface/connectivity_plus_platform_interface.dart'
-    show ConnectivityResult;
+    show ConnectivityResult, ProxyResult;
 
 /// Discover network connectivity configurations: Distinguish between WI-FI and cellular, check WI-FI status and more.
 class Connectivity {
