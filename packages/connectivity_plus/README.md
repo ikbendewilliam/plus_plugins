@@ -15,6 +15,11 @@ themselves accordingly. It can distinguish between cellular vs WiFi connection.
 | :-----: | :-: | :---: | :-: | :---: | :----: |
 |   ✔️    | ✔️  |  ✔️   | ✔️  |  ✔️   |   ✔️   |
 
+getProxySettings:
+| Android | iOS | MacOS | Web | Linux | Window |
+| :-----: | :-: | :---: | :-: | :---: | :----: |
+|   ✔️    | ✔️  |      |    |      |       |
+
 ## Usage
 
 Sample usage to check current status:
@@ -22,11 +27,19 @@ Sample usage to check current status:
 ```dart
 import 'package:connectivity_plus/connectivity.dart';
 
-var connectivityResult = await (Connectivity().checkConnectivity());
+final connectivity = Connectivity();
+var connectivityResult = await (connectivity.checkConnectivity());
 if (connectivityResult == ConnectivityResult.mobile) {
   // I am connected to a mobile network.
 } else if (connectivityResult == ConnectivityResult.wifi) {
   // I am connected to a wifi network.
+}
+
+final proxy = await (connectivity.getProxySettings());
+if (proxy.host == null || proxy.port == null) {
+  // Don't use a proxy.
+} else {
+  // configure proxy.
 }
 ```
 
