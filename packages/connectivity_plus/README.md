@@ -5,7 +5,7 @@
 [![pub package](https://img.shields.io/pub/v/connectivity_plus.svg)](https://pub.dev/packages/connectivity_plus)
 
 This plugin allows Flutter apps to discover network connectivity and configure
-themselves accordingly. It can distinguish between cellular vs WiFi connection.
+themselves accordingly. It can distinguish between cellular vs WiFi connection. It also allows to detect proxy settings in Android and iOS
 
 > Note that on Android, this does not guarantee connection to Internet. For instance, the app might have wifi access but it might be a VPN or a hotel WiFi with no access.
 

@@ -63,6 +63,7 @@ Flutter plugin for accessing information about the battery state(full, charging,
 
 Flutter plugin for discovering the state of the network (WiFi &
 mobile/cellular) connectivity on Android and iOS.
+It also allows to detect proxy settings in Android and iOS
 
 [[View Source][connectivity_plus_code]]
 
