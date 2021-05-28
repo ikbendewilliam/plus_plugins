@@ -23,6 +23,11 @@ void main() {
         switch (methodCall.method) {
           case 'check':
             return 'wifi';
+          case 'proxy':
+            return <String, dynamic>{
+              'port': '1234',
+              'host': 'example.com',
+            };
           default:
             return null;
         }
@@ -61,6 +66,21 @@ void main() {
         <Matcher>[
           isMethodCall(
             'check',
+            arguments: null,
+          ),
+        ],
+      );
+    });
+
+    test('getProxySettings', () async {
+      final result = await methodChannelConnectivity.getProxySettings();
+      expect(result.host, 'example.com');
+      expect(result.port, '1234');
+      expect(
+        log,
+        <Matcher>[
+          isMethodCall(
+            'proxy',
             arguments: null,
           ),
         ],
